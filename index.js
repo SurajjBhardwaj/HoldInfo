@@ -18,11 +18,11 @@ console.log("port is : "+PORT);
 
 
 app.get("/",(req,res)=>{
-    res.send("hello ji");
+   res.render("component/home");
 });
 
 app.get("/hey",(req,res)=>{
-    res.send("noii noii");
+    res.render("layers/new");
 })
 
 

@@ -2,6 +2,7 @@ document.getElementById(`theme`).addEventListener(`click`,function(){
     let x=document.getElementById(`theme-dark`);
     let y=document.getElementById(`dropdownMenuButton2`);
     let z=document.getElementById(`dropdownMenuButton1`);
+    let m = document.getElementById(`footer`);
     console.log(x.classList.contains(`theme-dark`));
     if(x.classList.contains(`theme-dark`))
     {
@@ -12,6 +13,7 @@ document.getElementById(`theme`).addEventListener(`click`,function(){
     y.classList.add(`btn-light`);
     z.classList.remove(`btn-secondary`);
     z.classList.add(`btn-light`);
+    m.classList.add(`footer1`);
     }
     else
     {
@@ -22,5 +24,12 @@ document.getElementById(`theme`).addEventListener(`click`,function(){
     y.classList.remove(`btn-light`);
     z.classList.add(`btn-secondary`);
     z.classList.remove(`btn-light`);
+    m.classList.remove(`footer1`);
     }
 });
+
+
+
+
+
+

@@ -1,4 +1,98 @@
 <%- include('../layout/header1.ejs') %>
 
+    <div class="padding-bottom-50">
+        <div class="Container-fluid" style="padding: 0px 30px">
+            <div class="d-flex justify-content-around align-items-center average-header" style="padding: 10px 0px">
+            </div>
+            <div class="Container-fluid " style="padding: 0px 30px;">
+                <div class="d-flex justify-content-around align-items-center average-header" style="padding: 10px 0px;">
+                    <div class="text-center">
+                        <div class="average-header-maintext color-green">0.96 %</div>
+                        <div class="average-header-subHeading">5 Mins</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="average-header-maintext color-green">0.96 %</div>
+                        <div class="average-header-subHeading">1 Hour</div>
+                    </div>
+                    <div style="max-width: 40%;">
+                        <div class="text-center font-32 average-block">
+                            <div class="average-subText"><span class="subText-heading">Best Price to Trade</span></div>
+                            <div class="average-heading" style="padding-bottom: 10px;">₹ 24,76,926</div>
+                            <div class="average-subText">Average BTC/INR net price including commission</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="average-header-maintext color-green">9.71 %</div>
+                        <div class="average-header-subHeading">1 Day</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="average-header-maintext color-green">13.61 %</div>
+                        <div class="average-header-subHeading">7 Days</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fiat-crypto-table table-responsive" style="margin: 0px auto">
+                <table class="table-borderless text-center">
+                    <thead style="margin-bottom: 50px">
+                        <tr>
+                            <th>
+                                <h4>
+                                    <span class="pointer">#</span>
+                                </h4>
+                            </th>
+                            <th>
+                                <h4><span class="pointer">Platform</span></h4>
+                            </th>
+                            <th>
+                                <h4><span class="pointer">LastTraded Price</span></h4>
+                            </th>
+                            <th>
+                                <h4><span class="pointer">Buy / Sell Price</span></h4>
+                            </th>
+                            <th>
+                                <h4><span class="pointer">Difference</span></h4>
+                            </th>
+                            <th>
+                                <h4><span class="pointer">Savings</span></h4>
+                            </th>
+                        </tr>
+                    </thead>
 
-<%- include('../layout/footer.ejs') %>
+                    <% for(let i=0;i<data.length;i++) { %>
+                        <tr>
+                            <td class="align-middle">
+                                <h4 class="table-text">
+                                    <%= i+1 %>
+                                </h4>
+                            </td>
+                            <td class="align-middle">
+                                <a target="_blank"
+                                    href="https://wazirx.com/invite/sp7pvbt6?utm_source=finstreet&amp;utm_medium=affiliate&amp;utm_campaign=regnow-btn">
+                                    <h4 class="table-text">
+                                        <span class="exchange-name">
+                                            <%= data[i].name %>
+                                        </span>
+                                    </h4>
+                                </a>
+                            </td>
+                            <td class="align-middle">
+                                <h4 class="table-text">₹ <%= Math.round(data[i].last * data[i].volume) %></h4>
+                            </td>
+                            <td class="align-middle">
+                                <h4 class="table-text"><span>₹ <%= Math.round(data[i].buy * data[i].volume) %> / ₹<%= Math.round(data[i].sell * data[i].volume) %> </span></h4>
+                            </td>
+                            <td class="align-middle">
+                                <h4>-<%= Math.round((data[i].sell - data[i].buy) * data[i].volume)/100 %> %</h4>
+                            </td>
+                            <td class="align-middle">
+                                <h4>▼ ₹ <%= (Math.abs(data[i].sell-data[i].buy)*data[i].volume).toFixed(3) %> </h4>
+                            </td>
+                        </tr>
+                        <% }; %>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('../layout/footer.ejs') %>
